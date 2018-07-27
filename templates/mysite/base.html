@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+<link  rel="stylesheet" href={% static 'css/bootstrap.css' %} type="text/css">
+<script src={% static 'js/jquery.min.js' %}></script>
+<script src={% static 'js/bootstrap.js' %}></script>
+<style>
+    h1,h2,h3,h4,h5,p,div{
+        font-family: 微软雅黑;
+    }
+</style>
+</head>
+<body>
+{% include 'mysite/header.html' %}
+{% block content %}
+{% endblock %}
+{% include 'mysite/footer.html' %}
+
+</body>
+</html>
