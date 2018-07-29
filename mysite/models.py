@@ -34,11 +34,11 @@ class PModel(models.Model):
 
 
 class Product1(models.Model):
-    pmodel = models.ForeignKey(PModel,on_delete=models.CASCADE)
-    nickname = models.CharField(max_length=15,default="二手机")
+    pmodel = models.ForeignKey(PModel,on_delete=models.CASCADE, verbose_name="型号")
+    nickname = models.CharField(max_length=15,default="二手机",verbose_name="摘要")
     description = models.TextField(default="暂无说明")
-    year = models.PositiveIntegerField(default=2018)
-    price = models.PositiveIntegerField(default=0)
+    year = models.PositiveIntegerField(default=2018, verbose_name="出厂年份")
+    price = models.PositiveIntegerField(default=0, verbose_name="价格")
 
     def __str__(self):
         return self.nickname
