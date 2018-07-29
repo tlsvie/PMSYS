@@ -3,12 +3,28 @@
     {{ product.nickname | default:"找不到指定的手机"}}
 {% endblock %}
 
+{% block content %}
 <div class="container" align="center">
     {% if puoduct %}
-        
-
-
-
-
+        <table>
+        <tr><td align="center"><h3><{{ product.nickname }}/h3></td></tr>
+        <tr><td align="center"><h3><{{ product.description }}/h3></td></tr>
+        <tr><td align="center"><h3><{{ product.year }}/h3></td></tr>
+        <tr><td align="center"><h3><{{ product.price }}/h3></td></tr>
+        {% for img in images %}
+            {% if forloop.first %}
+                <tr><td class="center">
+            {% endif %}
+            <img src="{{ image.url }}" width="350"><br>
+            {% if forloop.last %}
+                </td></tr>
+            {% endif %}
+            {% empty %}
+            <tr><td align="center">没有图片</td></tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <h2>找不到指定手机</h2>
     {% endif %}
 </div>
+{% endblock %}
