@@ -5,6 +5,9 @@
 
 {% block content %}
     <div class="container" align="center">
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
         <form name="my_form" action="/" method="GET">
             现在的心情：<br/>
             {% for m in moods %}

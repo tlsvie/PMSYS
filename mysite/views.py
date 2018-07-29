@@ -1,14 +1,35 @@
 from django.shortcuts import render
 from mysite.models import Product
 from django.template.loader import get_template
+from django.template import RequestContext
 import random
 from django.http import HttpResponse,Http404
 from mysite import models
+from mysite import fms
+
+def contact(request):
+    form = fms.ContactForm()
+    request_context = RequestContext(request)
+    return render(request,'myform/contact.html',locals())
 
 
 def indexform(request):
     posts = models.Post.objects.filter(enable=True).order_by("-pub_time")[0:30]
     moods = models.Mood.objects.all()
+
+    try:
+        user_id = request.GET['user_id']
+        user_pass = request.GET['user_pass']
+        user_post = request.GET['user_post']
+        user_mood = request.GET['user_mood']
+    except:
+        user_id = None
+        message = "如要发布信息，每个位置都要填写"
+    if user_id != None:
+        mood = models.Mood.objects.get(status=user_mood)
+        post = models.Post.objects.create(mood=mood,nickname=user_id,def_pass=user_pass,message=user_post)
+        post.save()
+        message="成功存储[{}]".format(user_pass)
     return render(request,'myform/index.html',locals())
 
 
