@@ -45,7 +45,7 @@ class Product1(models.Model):
 
 
 class PPhoto(models.Model):
-    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product1,on_delete=models.CASCADE)
     description = models.CharField(max_length=20,default="产品图片")
     url = models.URLField(default="http://www.baidu.com")
 

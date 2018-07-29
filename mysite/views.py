@@ -11,6 +11,14 @@ def index(request):
     return render(request, 'mysite/index.html',{'products':products})
 
 
+def detail(request, id):
+    try:
+        product = models.Product1.objects.get(id=id)
+        images = models.PPhoto.objects.filter(product=product)
+    except:
+        pass
+    return render(request,'mysite/detail.html',{'images':images,'puoduct':product})
+
 
 def about(request):
     template = get_template('mysite/about.html')
