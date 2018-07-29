@@ -6,6 +6,16 @@ from django.http import HttpResponse,Http404
 from mysite import models
 
 
+def indexform(request):
+    posts = models.Post.objects.filter(enable=True).order_by("-pub_time")[0:30]
+    moods = models.Mood.objects.all()
+    return render(request,'myform/index.html',locals())
+
+
+def myform(request):
+    return render(request,"myform/index.html")
+
+
 def index(request):
     products = models.Product1.objects.all()
     return render(request, 'mysite/index.html',{'products':products})
