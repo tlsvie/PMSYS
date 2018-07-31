@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'mainsite',
     'mysite',
     'captcha',
+    'sess',
 
 ]
 

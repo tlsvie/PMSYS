@@ -25,8 +25,9 @@ urlpatterns = [
     url('books/', include('books.urls')),
     url('mysite/', include('mysite.urls')),
     url('^$', views.homepage),
-    url(r'^post/(\w+)$',views.showpost),
-    url(r'^captcha/',include('captcha.urls')),
+    url(r'^post/(\w+)$', views.showpost),
+    url(r'^captcha/', include('captcha.urls')),
+    url(r'^sess/', include('sess.urls')),
 
 
 ]
