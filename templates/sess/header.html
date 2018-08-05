@@ -11,13 +11,15 @@
                 <a href="/">Home</a>
             </li>
             {% if username %}
-                <li><a href="/logout">退出</a></li>
+                <li><a href="/userinfo">个人资料</a></li>
                 <li><a href="/post">填写</a></li>
-                <li><a href="/admin">后台管理</a></li>
+                <li><a href="/contact">联系管理员</a></li>
+                <li><a href="/logout">退出</a></li>
             {% else %}
                 <li><a href="/login">登录</a></li>
-                <li><a href="/contact">联系管理员</a></li>
+
             {% endif %}
+            <li><a href="/admin">后台管理</a></li>
         </ul>
     </div>
 </nav>

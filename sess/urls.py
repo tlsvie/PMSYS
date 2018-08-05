@@ -3,5 +3,6 @@ from sess import views
 
 
 urlpatterns = [
-    url(r'^$', views.login),
+    url(r'^$', views.index),
+    url(r'^login', views.login),
 ]
